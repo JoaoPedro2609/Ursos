@@ -4,7 +4,7 @@ Console.WriteLine("Análise de dados para Ursos Selvagens.\n");
 Console.Write("Digite a quantidade de Ursos: \n");
 int numeroDeUrsos = Convert.ToInt32(Console.ReadLine());
 
-int contador = 1, machos = 0, femea = 0;
+int contador = 1, machos = 0, femea = 0, geral = 0;
 int[] peso = new int[numeroDeUrsos];
 string[] sexo = new string[numeroDeUrsos] ;
 
@@ -45,7 +45,14 @@ for (int i0 = 0; i0 < numeroDeUrsos; i0++)
     switch(sexo[i0])
     {
         case "M": 
-        machos += 
+        machos++;
+        somaPesosMachos += peso;
+        break; 
+
+        case "F":
+        femea++;
+        somaPesosFemeas += peso;
+        break;
     }
 
     if (peso[i0] <= 50 && sexo[i0] == "M") machosML++;
@@ -64,6 +71,51 @@ for (int i0 = 0; i0 < numeroDeUrsos; i0++)
         pesoMaior = peso[i0];
         sexoPesoMaior = sexo[i0];
     }
+}
+
+if(geral == 0)
+{
+    return;
+} 
+
+geralML = machosML + femeasML;
+geralL = machosL + femeasL;
+geralM = machosM + femeasM;
+geralP = machosP + femeasP;
+geralMP = machosMP + femeasMP;
+
+porcentagemML = Convert.ToDouble(geralML / geral * 100;)
+porcentagemL = Convert.ToDouble(geralL / geral * 100);
+porcentagemM = Convert.ToDouble(geralM / geral * 100);
+porcentagemP = Convert.ToDouble(geralP / geral * 100);
+porcentagemMP = Convert.ToDouble(geralMP / geral * 100);
+
+porcentagemMachos = Convert.ToDouble(machos / geral * 100);
+porcentagemFemeas = Convert.ToDouble(femea / geral * 100);
+
+somaPesos = somaPesosMachos + somaPesosFemeas;
+mediaPeso = somaPesos / qtd;
+
+if (qtdMachos > 0)
+{
+    porcentagemMachosML = Convert.ToDouble(machosML / machos * 100);
+    percentualMachosL = Convert.ToDouble(machosL / machos * 100);
+    percentualMachosM = (double)qtdMachosM / qtdMachos * 100;
+    percentualMachosP = (double)qtdMachosP / qtdMachos * 100;
+    percentualMachosMP = (double)qtdMachosMP / qtdMachos * 100;
+
+    mediaPesoMachos = somaPesosMachos / qtdMachos;
+}
+
+if (qtdFemeas > 0)
+{
+    percentualFemeasML = (double)qtdFemeasML / qtdFemeas * 100;
+    percentualFemeasL = (double)qtdFemeasL / qtdFemeas * 100;
+    percentualFemeasM = (double)qtdFemeasM / qtdFemeas * 100;
+    percentualFemeasP = (double)qtdFemeasP / qtdFemeas * 100;
+    percentualFemeasMP = (double)qtdFemeasMP / qtdFemeas * 100;
+
+    mediaPesoFemeas = somaPesosFemeas / qtdFemeas;
 }
 
 // Console.WriteLine(Math.Max());
