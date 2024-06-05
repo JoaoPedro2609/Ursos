@@ -34,11 +34,11 @@ for (int i0 = 0; i0 < numeroDeUrsos; i0++)
     }
     Console.Write("Sexo (M/F)...: ");
     string valorSexo = Console.ReadLine()!.Trim().Substring(0, 1).ToUpper();
-   if(valorSexo != "m" || valorSexo != "f")
-   {
-        Console.WriteLine("Sexo não identificado");
-        return;
-   }
+//    if(valorSexo != "m" || valorSexo != "f")
+//    {
+//         Console.WriteLine("Sexo não identificado");
+//         return;
+//    }
     peso[i0] = valorPeso;
     sexo[i0] = valorSexo;
 
@@ -46,12 +46,12 @@ for (int i0 = 0; i0 < numeroDeUrsos; i0++)
     {
         case "M": 
         machos++;
-        somaPesosMachos += peso;
-        break; 
+        somaPesosMachos += peso[i0];
+        break;
 
         case "F":
         femea++;
-        somaPesosFemeas += peso;
+        somaPesosFemeas += peso[i0];
         break;
     }
 
@@ -73,10 +73,10 @@ for (int i0 = 0; i0 < numeroDeUrsos; i0++)
     }
 }
 
-if(geral == 0)
-{
-    return;
-} 
+// if(geral == 0)
+// {
+//     return;
+// } 
 
 geralML = machosML + femeasML;
 geralL = machosL + femeasL;
@@ -84,54 +84,55 @@ geralM = machosM + femeasM;
 geralP = machosP + femeasP;
 geralMP = machosMP + femeasMP;
 
-porcentagemML = Convert.ToDouble(geralML / geral * 100;)
+
 porcentagemL = Convert.ToDouble(geralL / geral * 100);
 porcentagemM = Convert.ToDouble(geralM / geral * 100);
 porcentagemP = Convert.ToDouble(geralP / geral * 100);
 porcentagemMP = Convert.ToDouble(geralMP / geral * 100);
+porcentagemML = Convert.ToDouble(geralML / geral * 100);
 
 porcentagemMachos = Convert.ToDouble(machos / geral * 100);
 porcentagemFemeas = Convert.ToDouble(femea / geral * 100);
 
 somaPesos = somaPesosMachos + somaPesosFemeas;
-mediaPeso = somaPesos / qtd;
+mediaPeso = somaPesos / geral;
 
-if (qtdMachos > 0)
+if (machos > 0)
 {
     porcentagemMachosML = Convert.ToDouble(machosML / machos * 100);
-    percentualMachosL = Convert.ToDouble(machosL / machos * 100);
-    percentualMachosM = (double)qtdMachosM / qtdMachos * 100;
-    percentualMachosP = (double)qtdMachosP / qtdMachos * 100;
-    percentualMachosMP = (double)qtdMachosMP / qtdMachos * 100;
+    porcentagemMachosL = Convert.ToDouble(machosL / machos * 100);
+    porcentagemMachosM = Convert.ToDouble(machosM / machos * 100);
+    porcentagemMachosP = Convert.ToDouble(machosP / machos * 100);
+    porcentagemMachosMP = Convert.ToDouble(machosMP / machos * 100);
 
-    mediaPesoMachos = somaPesosMachos / qtdMachos;
+    mediaPesoMachos = somaPesosMachos / machos;
 }
 
-if (qtdFemeas > 0)
+if (femea > 0)
 {
-    percentualFemeasML = (double)qtdFemeasML / qtdFemeas * 100;
-    percentualFemeasL = (double)qtdFemeasL / qtdFemeas * 100;
-    percentualFemeasM = (double)qtdFemeasM / qtdFemeas * 100;
-    percentualFemeasP = (double)qtdFemeasP / qtdFemeas * 100;
-    percentualFemeasMP = (double)qtdFemeasMP / qtdFemeas * 100;
+    porcentagemFemeasML = Convert.ToDouble(femeasML / femea * 100);
+    porcentagemFemeasL = Convert.ToDouble(femeasL / femea * 100);
+    porcentagemFemeasM = Convert.ToDouble(femeasM / femea * 100);
+    porcentagemFemeasP = Convert.ToDouble(femeasP / femea * 100);
+    porcentagemFemeasMP = Convert.ToDouble(femeasMP / femea * 100);
 
-    mediaPesoFemeas = somaPesosFemeas / qtdFemeas;
+    mediaPesoFemeas = somaPesosFemeas / femea;
 }
 
-// Console.WriteLine(Math.Max());
+Console.WriteLine($"\nUrso mais pesado: {pesoMaior} ({sexoPesoMaior})");
+Console.WriteLine($"Pesos médios: \n\tMachos = {mediaPesoMachos:N1}\n\tFêmeas = {mediaPesoFemeas:N1}\n\tGeral  = {mediaPeso:N1}\n");
 
-Console.WriteLine(@$"
------------------------------------------------------------------------------
-| Categoria | Ursos | Ursos (%) | Machos | Machos (%) | Fêmeas | Fêmeas (%) |
-| --------- | ----- | --------- | ------ | ---------- | ------ | ---------- |
-| ML        | 1     | 10%       | 0      | 0%         | 1      | 20%        |
-| L         | 2     | 20%       | 1      | 20%        | 1      | 20%        |
-| M         | 3     | 30%       | 1      | 20%        | 2      | 40%        |
-| P         | 3     | 30%       | 2      | 40%        | 1      | 20%        |
-| MP        | 1     | 20%       | 1      | 20%        | 0      | 0%         |
-| Total     | 10    | 100%      | 5      | 50%        | 5      | 50%        |
------------------------------------------------------------------------------
-");
+Console.WriteLine($"-----------------------------------------------------------------------------");
+Console.WriteLine($"| Categoria | Ursos | Ursos (%) | Machos | Machos (%) | Fêmeas | Fêmeas (%) |");
+Console.WriteLine($"| --------- | ----- | --------- | ------ | ---------- | ------ | ---------- |");
+// Console.WriteLine($"| ML        | {geralML}     | {porcentagemML}       | {machosML}      | {porcentagemMachosML}         | {femeasML}      | {porcentagemFemeasML}        |");
+Console.WriteLine($"| L         | 2     | 20%       | 1      | 20%        | 1      | 20%        |");
+Console.WriteLine($"| M         | 3     | 30%       | 1      | 20%        | 2      | 40%        |");
+Console.WriteLine($"| P         | 3     | 30%       | 2      | 40%        | 1      | 20%        |");
+Console.WriteLine($"| MP        | 1     | 20%       | 1      | 20%        | 0      | 0%         |");
+Console.WriteLine($"| Total     | 10    | 100%      | 5      | 50%        | 5      | 50%        |");
+Console.WriteLine($"-----------------------------------------------------------------------------");
+
 
 // foreach (int i0 in peso)
 // {
