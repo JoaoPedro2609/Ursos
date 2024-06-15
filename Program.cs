@@ -108,6 +108,7 @@ mediaPeso = somaPesos / geral;
     mediaPesoFemeas = somaPesosFemeas / femeas;
 
 
+
 Console.WriteLine($"\nUrso mais pesado: {pesoMaior} ({sexoPesoMaior})\n");
 
 Console.WriteLine($"Pesos médios: \tMachos = {mediaPesoMachos:N1}\tFêmeas = {mediaPesoFemeas:N1}\tGeral  = {mediaPeso:N1}\n");
