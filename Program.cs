@@ -109,9 +109,9 @@ mediaPeso = somaPesos / geral;
 
 
 
-Console.WriteLine($"\nUrso mais pesado: {pesoMaior} ({sexoPesoMaior})\n");
+Console.WriteLine($"\nUrso mais pesado: {pesoMaior}kg ({sexoPesoMaior})");
 
-Console.WriteLine($"Pesos médios: \tMachos = {mediaPesoMachos:N1}\tFêmeas = {mediaPesoFemeas:N1}\tGeral  = {mediaPeso:N1}\n");
+Console.WriteLine($"\nPesos médios: \tMachos = {mediaPesoMachos:N1}\tFêmeas = {mediaPesoFemeas:N1}\tGeral  = {mediaPeso:N1}\n");
 
 Console.WriteLine("-------------------------------------------------------------------------------");
 Console.WriteLine("Categoria       Ursos    Ursos (%)    Machos   Machos (%)    Fêmeas  Fêmeas (%)");
