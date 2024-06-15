@@ -1,9 +1,9 @@
 ﻿Console.Clear();
 Console.WriteLine("Análise de dados para Ursos Selvagens.\n");
-Console.Write("Digite a quantidade de Ursos: \n");
-int numeroDeUrsos = Convert.ToInt32(Console.ReadLine());
+Console.Write("Digite a quantidade de Ursos: ");
+int geral = Convert.ToInt32(Console.ReadLine());
 
-int contador = 1, machos = 0, femeas = 0, geral = 0;
+int contador = 1, machos = 0, femeas = 0;
 double peso;
 string sexo;
 
@@ -17,11 +17,10 @@ int geralMl = 0, geralL = 0, geralM = 0, geralP = 0, geralMP = 0;
 int machosMl = 0, machosL = 0, machosM = 0, machosP = 0, machosMP = 0;
 int femeasMl = 0, femeasL = 0, femeasM = 0, femeasP = 0, femeasMP = 0;
 
-double porcentagemMl = 0, porcentagemL = 0, porcentagemM = 0, porcentagemP = 0, porcentagemMP = 0;
-double porcentagemMachos = 0, porcentagemMachosMl = 0, porcentagemMachosL = 0, porcentagemMachosM = 0, porcentagemMachosP = 0, porcentagemMachosMP = 0;
-double porcentagemFemeas = 0, porcentagemFemeasMl = 0, porcentagemFemeasL = 0, porcentagemFemeasM = 0, porcentagemFemeasP = 0, porcentagemFemeasMP = 0;
-
-while(contador != numeroDeUrsos + 1)
+double porcentagemMl, porcentagemL, porcentagemM, porcentagemP, porcentagemMP;
+double porcentagemMachos, porcentagemMachosMl, porcentagemMachosL, porcentagemMachosM, porcentagemMachosP, porcentagemMachosMP;
+double porcentagemFemeas, porcentagemFemeasMl, porcentagemFemeasL, porcentagemFemeasM, porcentagemFemeasP, porcentagemFemeasMP;
+while(contador != geral + 1)
 {
        Console.WriteLine($"\n-- Urso #{contador ++} ---");
 
@@ -35,7 +34,7 @@ while(contador != numeroDeUrsos + 1)
 
     if (sexo != "M" && sexo != "F") break;
 
-    geral++;
+    
 
     switch(sexo)
     {
@@ -77,34 +76,34 @@ geralM = machosM + femeasM;
 geralP = machosP + femeasP;
 geralMP = machosMP + femeasMP;
 
-porcentagemMl = geralMl / geral * 100;
-porcentagemL = geralL / geral * 100;
-porcentagemM = geralM / geral * 100;
-porcentagemP = geralP / geral * 100;
-porcentagemMP = geralMP / geral * 100;
+porcentagemMl = (double)geralMl / geral * 100;
+porcentagemL = (double)geralL / geral * 100;
+porcentagemM = (double)geralM / geral * 100;
+porcentagemP = (double)geralP / geral * 100;
+porcentagemMP = (double)geralMP / geral * 100;
 
 
-porcentagemMachos = machos / geral * 100;
-porcentagemFemeas = femeas / geral * 100;
+porcentagemMachos = (double)machos / geral * 100;
+porcentagemFemeas = (double)femeas / geral * 100;
 
 somaPesos = somaPesosMachos + somaPesosFemeas;
 mediaPeso = somaPesos / geral;
 
-    porcentagemMachosMl = machosMl / machos * 100;
-    porcentagemMachosL = machosL / machos * 100;
-    porcentagemMachosM = machosM / machos * 100;
-    porcentagemMachosP = machosP / machos * 100;
-    porcentagemMachosMP = machosMP / machos * 100;
+    porcentagemMachosMl = (double)machosMl / machos * 100;
+    porcentagemMachosL = (double)machosL / machos * 100;
+    porcentagemMachosM = (double)machosM / machos * 100;
+    porcentagemMachosP = (double)machosP / machos * 100;
+    porcentagemMachosMP = (double)machosMP / machos * 100;
 
     mediaPesoMachos = somaPesosMachos / machos;
 
 
 
-    porcentagemFemeasMl = femeasMl / femeas * 100;
-    porcentagemFemeasL = femeasL / femeas * 100;
-    porcentagemFemeasM = femeasM / femeas * 100;
-    porcentagemFemeasP = femeasP / femeas * 100;
-    porcentagemFemeasMP = femeasMP / femeas * 100;
+    porcentagemFemeasMl = (double)femeasMl / femeas * 100;
+    porcentagemFemeasL = (double)femeasL / femeas * 100;
+    porcentagemFemeasM = (double)femeasM / femeas * 100;
+    porcentagemFemeasP = (double)femeasP / femeas * 100;
+    porcentagemFemeasMP = (double)femeasMP / femeas * 100;
 
     mediaPesoFemeas = somaPesosFemeas / femeas;
 
@@ -123,3 +122,27 @@ Console.WriteLine($"{"P",-10} {geralP,6} {porcentagemP,12:N1}% {machosP,7} {porc
 Console.WriteLine($"{"MP",-10} {geralMP,6} {porcentagemMP,12:N1}% {machosMP,7} {porcentagemMachosMP,12:N1}% {femeasMP,8} {porcentagemFemeasMP,9:N1}%");
 Console.WriteLine("-------------------------------------------------------------------------------");
 Console.WriteLine($"{"Total",-10} {geral,6} {100,10}% {machos,10} {porcentagemMachos,10:N1}% {femeas,10} {porcentagemFemeas,10:N1}%");
+
+Console.WriteLine("\n----- Ursos Machos -----");
+Console.WriteLine("   +...10...20...30...40...50...60...70...80...90..100");
+Console.WriteLine($"ML |{"".PadRight((int)porcentagemMachosMl / 2, '*')}");
+Console.WriteLine($"L  |{"".PadRight((int)porcentagemMachosL / 2, '*')}");
+Console.WriteLine($"M  |{"".PadRight((int)porcentagemMachosM / 2, '*')}");
+Console.WriteLine($"P  |{"".PadRight((int)porcentagemMachosP / 2, '*')}");
+Console.WriteLine($"MP |{"".PadRight((int)porcentagemMachosMP / 2, '*')}");
+
+Console.WriteLine("\n----- Ursos Femeas -----");
+Console.WriteLine("   +...10...20...30...40...50...60...70...80...90..100");
+Console.WriteLine($"ML |{"".PadRight((int)porcentagemFemeasMl / 2, '*')}");
+Console.WriteLine($"L  |{"".PadRight((int)porcentagemFemeasL / 2, '*')}");
+Console.WriteLine($"M  |{"".PadRight((int)porcentagemFemeasM / 2, '*')}");
+Console.WriteLine($"P  |{"".PadRight((int)porcentagemFemeasP / 2, '*')}");
+Console.WriteLine($"MP |{"".PadRight((int)porcentagemFemeasMP / 2, '*')}");
+
+Console.WriteLine("\n----- Ursos (todos) -----");
+Console.WriteLine("   +...10...20...30...40...50...60...70...80...90..100");
+Console.WriteLine($"ML |{"".PadRight((int)porcentagemMl / 2, '*')}");
+Console.WriteLine($"L  |{"".PadRight((int)porcentagemL / 2, '*')}");
+Console.WriteLine($"M  |{"".PadRight((int)porcentagemM / 2, '*')}");
+Console.WriteLine($"P  |{"".PadRight((int)porcentagemP / 2, '*')}");
+Console.WriteLine($"MP |{"".PadRight((int)porcentagemMP / 2, '*')}");
