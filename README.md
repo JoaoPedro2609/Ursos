@@ -107,3 +107,9 @@ Execute utilizando o comando:
 ```
 dotnet ursos.dll
 ```
+## Agradecimentos
+
+- Etec Adolpho Berezin
+- João Pedro Oliveira
+- Higor Nunes
+- Dev C#
