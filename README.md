@@ -105,5 +105,5 @@ Baixe o arquivo abaixo. Descompacte na pasta desejada.
 Execute utilizando o comando:
 
 ```
-dotnet Ursos.dll
+dotnet ursos.dll
 ```
