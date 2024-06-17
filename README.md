@@ -100,6 +100,10 @@ MP |*****
 
 Baixe o arquivo abaixo. Descompacte na pasta desejada.
 
-🔗 Download do arquivo .zip
+[🔗 Download do arquivo .zip](dist/Ursos.zip)
 
 Execute utilizando o comando:
+
+```
+dotnet Ursos.dll
+```
