@@ -109,7 +109,6 @@ dotnet ursos.dll
 ```
 ## Agradecimentos
 
-- Etec Adolpho Berezin
-- João Pedro Oliveira
-- Higor Nunes
-- Dev C#
+- [Etec Adolpho Berezin](https://etecab.cps.sp.gov.br/)
+- [João Pedro Oliveira](https://github.com/JoaoPedro2609)
+- [Higor Nunes](https://github.com/Higornunes)
